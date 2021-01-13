@@ -1,0 +1,19 @@
+scalar Long
+
+schema {
+	query: Query
+}
+type Nomenclador {
+	id: ID!
+	codigo: String!
+	descripcion: String
+}
+
+type Query{
+	findAllNomenclador: [Nomenclador]!
+	countNomenclador: Long!
+}
+
+type Mutation {
+	createNomenclador(codigo: String!, descripcion: String): Nomenclador
+}

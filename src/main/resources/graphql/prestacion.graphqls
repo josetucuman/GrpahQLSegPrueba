@@ -1,0 +1,20 @@
+type Prestacion {
+	id: ID!
+	codigo: String!
+	descripcion: String!
+	capitulo: Int
+	subcapitulo: Int
+	nomencladores: Nomencladores
+}
+
+extend type Query {
+	findAllPrestaciones: [Prestacion]!
+	findPrestacionId(id: ID): Prestacion!
+	countPrestaciones: Long!
+}
+
+extend type Mutation {
+	createPrestacion(codigo: String!, descripcion: String, capitulo: Int, subcapitulo: Int, nom: Nomenclador): Prestacion!
+	updatePrestacion(id: ID!,codigo: String!, descripcion: String, capitulo: Int, subcapitulo: Int, nom: Nomenclador): Prestacion
+	deletePrestacion(id: ID!): Boolean
+}
